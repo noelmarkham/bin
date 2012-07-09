@@ -1,0 +1,4 @@
+#!/bin/bash
+
+SVN_REV=`svn log -q --limit 1 -r 0:HEAD $1 | grep '^r' | awk '{print $1}' | sed 's/r//'`
+git svn clone -s -r $SVN_REV:HEAD $1
